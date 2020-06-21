@@ -18,7 +18,7 @@ class Contact extends Component {
     this.setState({
       isSending: true
     })
-    api.post("/message", values, {headers: {"Accept": "application/json"}})
+    api.post("/message/", values, {headers: {"Accept": "application/json"}})
     .then((response) => {
       if(response.data.status === "success"){
         this.setState({ isSending: false, isShowMsg: true })
