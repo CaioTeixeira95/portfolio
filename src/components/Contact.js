@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import api from '../services/api';
 
 class Contact extends Component {
 
@@ -18,17 +17,25 @@ class Contact extends Component {
     this.setState({
       isSending: true
     })
-    api.post("/message/", values, {headers: {"Accept": "application/json"}})
-    .then((response) => {
-      if(response.data.status === "success"){
-        this.setState({ isSending: false, isShowMsg: true })
-          resetForm();
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    
+    let enviar = { username: values.name, email:values.email, message: values.message};
+    var raw = JSON.stringify(enviar);
+    fetch('https://api-cadastro-cliente.000webhostapp.com/message', {
+          method: 'POST',
+          body: raw,
+        })
+        .then((response)=>{return response.text()})
+        .then((data)=>{
+          //console.log(data);
+          //console.log(data.mensagem);
+          let resp = JSON.parse(data);
+          if(resp.status === "success"){
+            this.setState({ isSending: false, isShowMsg: true })
+            resetForm();
+          }
 
+        });
+    
     
   }
 
@@ -51,10 +58,15 @@ class Contact extends Component {
             if(!values.name) {
               errors.name = 'O Nome é obrigatório';
             }
-            if (!values.email) {
+            
+            if(!values.email) {
               errors.email = 'O Email é obrigatório';
             }
-            if (!values.message) {
+            else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+              errors.email = 'Endereço de email inválido';
+            }
+
+            if(!values.message) {
               errors.message = 'A Mensagem é obrigatória';
             }
             return errors; 
@@ -69,7 +81,7 @@ class Contact extends Component {
            <Fragment>
             <form className="site-form" onSubmit={ handleSubmit }>
               {
-                isShowMsg && <div class="alert alert-success">Mensagem enviada com sucesso!</div>  
+                isShowMsg && <div className="alert alert-success">Mensagem enviada com sucesso!</div>  
               }
                   
               <div className="row">

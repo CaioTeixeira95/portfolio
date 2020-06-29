@@ -151,7 +151,7 @@ class Header extends Component {
 				    offset={-30}
 				    duration= {500}			          
 		          > 
-		          	Trabalhos  
+		          	Experiência 
 		          </Link>
 		        </li>          
 		        <li className="site-nav__list">

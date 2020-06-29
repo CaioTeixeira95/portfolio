@@ -638,10 +638,13 @@ $input-focus: rgba($color-base, 0.5);
 	font-family: 'Montserrat';
 	width: 100%;
 	&-error {
-		  	border-bottom: 3px solid #ec5840;
+			border: 0;		  	
+			box-shadow: none;
+			border-bottom: 3px solid #ec5840;
 		}
 	&:focus {
 			outline: none;
+			border: 0;
 			border-bottom: 3px solid $input-focus;
 			
 		}
@@ -682,6 +685,8 @@ $input-focus: rgba($color-base, 0.5);
 		height: calc(1.5em + .75rem + 2px);
 		@include inputs;
 	}	
+
+
 
 	&__action {
 		width: 100%;
@@ -860,4 +865,8 @@ $input-focus: rgba($color-base, 0.5);
 
 .stroke-white { stroke: #fff  }
 .text-white { color: #fff }
+
+.skillbar-percent{
+	display: none !important;
+}
 
