@@ -1,25 +1,21 @@
 {
-  "name": "react-portfolio",
+  "name": "portfolio-caio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
-    "formik": "^1.5.7",
-    "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-circular-progressbar": "^2.0.1",
-    "react-dom": "^16.8.6",
-    "react-particles-js": "^2.6.0",
-    "react-scripts": "3.0.1",
-    "react-scroll": "^1.7.12",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "formik": "^2.1.4",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-particles-js": "^3.2.1",
+    "react-scripts": "3.4.1",
+    "react-scroll": "^1.7.16",
     "react-skillbars": "^1.6.1",
-    "react-typing-animation": "^1.6.2",
-    "react-typist": "^2.0.5",
-    "react-validation": "^3.0.7",
-    "react-visibility-sensor": "^5.0.2",
-    "react-waypoint": "^9.0.2",
     "semantic-ui-react": "^0.88.2",
-    "yup": "^0.27.0"
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,7 +28,7 @@
   },
   "browserslist": {
     "production": [
-      "last 5 version",
+      ">0.2%",
       "not dead",
       "not op_mini all"
     ],
